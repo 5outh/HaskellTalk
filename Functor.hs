@@ -10,18 +10,20 @@ class Functor f where
   fmap :: (a -> b) -> f a -> f b
 
 instance Functor [] where
-  fmap = undefined
+  fmap = map
 
 instance Functor Maybe where
-  fmap = undefined
+  fmap f Nothing  = Nothing
+  fmap f (Just a) = Just (f a)
 
 -- Might break tree ordering properties, but still a valid functor
 instance Functor BST where
-  fmap = undefined
+  fmap = mapTree
 
 fmaybe = Just 3
 flist  = [1, 4, 2, 3]
 fbst   = fromList flist
 
+-- polymorphic function that works over all functors!
 square :: (Functor f, Num a) => f a -> f a
-square = undefined
+square functor = fmap (*2) functor
