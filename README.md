@@ -7,7 +7,7 @@ Modules should be explored in the following order:
 
 1. helloworld.hs
 2. Basics.hs
-3. List
+3. List.hs
 4. ProjectEuler.hs
 5. Tree.hs
 6. Functor.hs
